@@ -17,16 +17,15 @@ import java.util.List;
 @Service
 public class LoanService {
 
-
         private static List<Loan> todos = new ArrayList<Loan>();
         static {
-            todos.add(new Loan("A1", "John", 5, "Business"));
-            todos.add(new Loan("B2", "Drinks", 2, "Business"));
+            todos.add(new Loan("A1", "John", 1000, 5, "Business"));
+            todos.add(new Loan("B2", "Drinks", 20, 10, "Personal"));
         }
 
         public void initialadd(){
-            todos.add(new Loan("A1", "John", 5, "Business"));
-            todos.add(new Loan("B2", "Drinks", 2, "Business"));
+            todos.add(new Loan("A1", "John",1000, 5, "Business"));
+            todos.add(new Loan("B2", "Drinks", 20, 2, "Personal"));
         }
 
 
@@ -39,8 +38,8 @@ public class LoanService {
         }
 
 
-        public void addTodo(String clientno, String clientname, int years, String loantype) {
-            todos.add(new Loan( clientno,  clientname,  years,  loantype));
+        public void addTodo(String clientno, String clientname,double loanamount, int years, String loantype) {
+            todos.add(new Loan(clientno, clientname, loanamount, years, loantype));
         }
 
         public void deleteTodo(String id) {

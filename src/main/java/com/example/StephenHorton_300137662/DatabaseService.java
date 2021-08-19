@@ -77,21 +77,24 @@ public class DatabaseService implements DatabaseInterface {
         }
         return Loanlist;
     }
-//    public List<Items> display2(String catcode) throws ClassNotFoundException, SQLException {
-//        //create an array list that will contain the data recovered
-//        List<Items> Itemlist = new ArrayList<Items>();
-//        String quer1 = "Select itemcode,itemdesc from items where catcode=?";
-//        PreparedStatement query = con.prepareStatement(quer1);
-//        query.setString(1, catcode);
-//        ResultSet rs = query.executeQuery();
-//        Items obj2;
-//
-//
-//        while (rs.next()) {
-//            obj2 = new Items(rs.getString("itemcode"),rs.getString("itemdesc"));
-//            Itemlist.add(obj2);
-//        }
-//        return Itemlist;
-//    }
+
+
+    public List<Amortization> display2(String clientno) throws ClassNotFoundException, SQLException {
+        List<Amortization> AmortizationTable = new ArrayList<Amortization>();
+        String quer1 = "Select year,startingAmount, interest, monthlyPayment, endingBalance from loan where clientno=?";
+        PreparedStatement query = con.prepareStatement(quer1);
+        query.setString(1, clientno);
+        ResultSet rs = query.executeQuery();
+        Amortization obj2;
+        while (rs.next()) {
+            obj2 = new Amortization(rs.getInt("year"),
+                    rs.getDouble("startingAmount"),
+                    rs.getDouble("interest"),
+                    rs.getDouble("monthlyPayment"),
+                    rs.getDouble("endingBalance"));
+            AmortizationTable.add(obj2);
+        }
+        return AmortizationTable;
+    }
 }
 
