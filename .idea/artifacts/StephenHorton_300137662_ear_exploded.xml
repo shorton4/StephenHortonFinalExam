@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="StephenHorton-300137662:ear exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/StephenHorton_300137662_ear_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="StephenHorton-300137662/javaeeApplication/javaEEApplication" />
+    </root>
+  </artifact>
+</component>
